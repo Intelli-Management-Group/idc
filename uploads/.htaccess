@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^category-(.*)$ news_category.php?id=$1 [L]
+RewriteRule ^archieve-(.*)-(.*)$ archives.php?month=$1&year=$2 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d [NC]
+RewriteCond %{REQUEST_FILENAME} !-f [NC]
+RewriteRule ^(.*)$ detail_news.php?id=$1 [QSA,L]
+
+# Security: this folder holds uploaded images (and an old copy of the site from 2019).
+# Never execute PHP from here — the old copy's admin pages had no working login check.
+<FilesMatch "\.(php[0-9]?|phtml|phar)$">
+    Require all denied
+</FilesMatch>
