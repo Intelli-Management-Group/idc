@@ -5,15 +5,15 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 //database credentials
-// define('DBHOST','localhost');
-// define('DBUSER','admin_idc');
-// define('DBPASS','admin@idc123!');
-// define('DBNAME','news_idc');
-
 define('DBHOST','localhost');
-define('DBUSER','root');
-define('DBPASS','');
+define('DBUSER','admin_idc');
+define('DBPASS','admin@idc123!');
 define('DBNAME','news_idc');
+
+// define('DBHOST','localhost');
+// define('DBUSER','root');
+// define('DBPASS','');
+// define('DBNAME','news_idc');
 
 $db = new PDO("mysql:host=".DBHOST.";port=3306;dbname=".DBNAME, DBUSER, DBPASS);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
